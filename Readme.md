@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Степан Согомонян](https://up.htmlacademy.ru/javascript-individual/2/user/2528903).
-* Наставник: `Неизвестно`.
+* Наставник: [Артём Картавый](https://htmlacademy.ru/profile/artem_k).
 
 ---
 
