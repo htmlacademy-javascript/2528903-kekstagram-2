@@ -7,7 +7,7 @@ const checkLenght = (string, lenght) => {
     return true;
   }
   return false; */
-}
+};
 
 // Строка меньше указанной длины - true
 
