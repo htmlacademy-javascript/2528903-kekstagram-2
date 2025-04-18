@@ -13,8 +13,9 @@ const isPalindrome = (string) => {
   const normalizedString = string.replaceAll(' ', '').toLowerCase();
   let emptyString = '';
   for (let i = normalizedString.length - 1; i >= 0; i--) {
-    const symbol = normalizedString[i];
-    emptyString += symbol;
+    /* const symbol = normalizedString[i];
+    emptyString += symbol; */
+    emptyString += normalizedString[i];
   }
   return emptyString === normalizedString;
 };
