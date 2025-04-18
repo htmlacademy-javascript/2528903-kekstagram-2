@@ -1,8 +1,8 @@
 // Проверка длины строки
-const checkLenght = (string, lenght) => {
-  const result = (string <= lenght);
+const checkLength = (string, length) => {
+  const result = (string <= length);
   return result;
-  /*   if (string <= lenght){
+  /*   if (string <= length){
     return true;
   }
   return false; */
