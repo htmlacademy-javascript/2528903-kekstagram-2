@@ -16,29 +16,15 @@ isPalindrome();
 // Функция, которая принимает время начала и конца рабочего дня,
 // а также время старта и продолжительность встречи в минутах и возвращает true, если встреча не выходит за рамки рабочего дня,
 // и false, если выходит.
-const workDayTime = (sHours, sMinutes, eHours, eMinutes, mHours, mMinutes, duration) => {
-  const startWork = new Date();
-  startWork.setHours(sHours, sMinutes);
-  const hStart = startWork.getHours().toString();
-  const mStart = startWork.getMinutes().toString();
+const workDayTime = (startWork, endWork, startMeeting, durationMeeting) => {
+  const [startHours, startMinutes] = startWork.split(':').map(Number);
+  const [endHours, endMinutes] = endWork.split(':').map(Number);
+  const [meetingHours, meetingMinutes] = startMeeting.split(':').map(Number);
 
-  const endWork = new Date();
-  endWork.setHours(eHours, eMinutes);
-  const hEnd = endWork.getHours().toString();
-  const mEnd = endWork.getMinutes().toString();
+  const startTotalMinutes = startHours * 60 + startMinutes;
+  const endTotalMinutes = endHours * 60 + endMinutes;
+  const meetingTotalMinutes = meetingHours * 60 + meetingMinutes;
 
-  const startMeeting = new Date();
-  startMeeting.setHours(mHours, mMinutes);
-  const hMeeting = startMeeting.getHours().toString();
-  const mMeeting = startMeeting.getMinutes().toString();
-
-  const minutesToAdd = Number(duration);
-  const meetingDuration = new Date(startMeeting.getTime());
-  meetingDuration.setMinutes(meetingDuration.getMinutes() + minutesToAdd);
-
-  if (meetingDuration > endWork) {
-    return `${hStart}:${mStart}, ${hEnd}:${mEnd}, ${hMeeting}:${mMeeting}, ${duration} false`;
-  }
-  return `${hStart}:${mStart}, ${hEnd}:${mEnd}, ${hMeeting}:${mMeeting}, ${duration} true`;
+  return meetingTotalMinutes >= startTotalMinutes && meetingTotalMinutes + durationMeeting <= endTotalMinutes && true;
 };
 workDayTime();
