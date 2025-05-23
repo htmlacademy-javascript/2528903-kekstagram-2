@@ -17,14 +17,18 @@ isPalindrome();
 // а также время старта и продолжительность встречи в минутах и возвращает true, если встреча не выходит за рамки рабочего дня,
 // и false, если выходит.
 const workDayTime = (startWork, endWork, startMeeting, durationMeeting) => {
-  const [startHours, startMinutes] = startWork.split(':').map(Number);
-  const [endHours, endMinutes] = endWork.split(':').map(Number);
-  const [meetingHours, meetingMinutes] = startMeeting.split(':').map(Number);
+  const countTime = (timeString) => {
+    const [hours, minutes] = timeString.split(':').map(Number);
+    const oneHour = 60;
+    const total = hours * oneHour + minutes;
+    return total;
+  };
 
-  const startTotalMinutes = startHours * 60 + startMinutes;
-  const endTotalMinutes = endHours * 60 + endMinutes;
-  const meetingTotalMinutes = meetingHours * 60 + meetingMinutes;
+  const startWorkNumber = countTime(startWork);
+  const endWorkNumber = countTime(endWork);
+  const startMeetingNumber = countTime(startMeeting);
 
-  return meetingTotalMinutes >= startTotalMinutes && meetingTotalMinutes + durationMeeting <= endTotalMinutes && true;
+  return startMeetingNumber >= startWorkNumber &&
+  startMeetingNumber + durationMeeting <= endWorkNumber;
 };
 workDayTime();
