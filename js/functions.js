@@ -2,7 +2,7 @@ const MINUTES_IN_HOUR = 60;
 
 // Проверка длины строки
 const checkLength = (string, length) => string.length <= length;
-checkLength();
+checkLength(3, 4);
 
 // Является ли строка палиндромом
 const isPalindrome = (string) => {
@@ -13,7 +13,7 @@ const isPalindrome = (string) => {
   }
   return emptyString === normalizedString;
 };
-isPalindrome();
+isPalindrome('asddsa');
 
 // Функция, которая принимает время начала и конца рабочего дня,
 // а также время старта и продолжительность встречи в минутах и возвращает true, если встреча не выходит за рамки рабочего дня,
@@ -32,4 +32,4 @@ const workDayTime = (startWork, endWork, startMeeting, durationMeeting) => {
   return startMeetingNumber >= startWorkNumber &&
   startMeetingNumber + durationMeeting <= endWorkNumber;
 };
-workDayTime();
+workDayTime('08:00', '17:30', '14:00', 90);
