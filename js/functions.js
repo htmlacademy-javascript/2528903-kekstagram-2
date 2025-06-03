@@ -1,3 +1,5 @@
+const MINUTES_IN_HOUR = 60;
+
 // Проверка длины строки
 const checkLength = (string, length) => string.length <= length;
 checkLength();
@@ -19,8 +21,7 @@ isPalindrome();
 const workDayTime = (startWork, endWork, startMeeting, durationMeeting) => {
   const countTime = (timeString) => {
     const [hours, minutes] = timeString.split(':').map(Number);
-    const oneHour = 60;
-    const total = hours * oneHour + minutes;
+    const total = hours * MINUTES_IN_HOUR + minutes;
     return total;
   };
 
